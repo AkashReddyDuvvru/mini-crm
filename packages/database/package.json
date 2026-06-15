@@ -1,0 +1,14 @@
+{
+  "name": "@mini-crm/database",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "generate": "prisma generate"
+  },
+  "dependencies": {
+    "@prisma/client": "^5.22.0"
+  },
+  "devDependencies": {
+    "prisma": "5"
+  }
+}

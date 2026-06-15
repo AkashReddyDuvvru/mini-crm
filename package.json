@@ -1,0 +1,12 @@
+{
+  "name": "mini-crm",
+  "version": "1.0.0",
+  "private": true,
+  "workspaces": [
+    "apps/*",
+    "packages/*"
+  ],
+  "dependencies": {
+    "@prisma/client": "^5.22.0"
+  }
+}
