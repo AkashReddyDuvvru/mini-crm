@@ -15,7 +15,7 @@ export default function Segments() {
 
   const fetchSegments = async () => {
     try {
-      const res = await fetch("http://localhost:4000/api/segments");
+      const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL || "http://localhost:4000"}/api/segments`);
       const data = await res.json();
       setSegments(data);
     } catch (e) {
@@ -27,7 +27,7 @@ export default function Segments() {
     e.preventDefault();
     setIsGenerating(true);
     try {
-      const res = await fetch("http://localhost:4000/api/ai/segment", {
+      const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL || "http://localhost:4000"}/api/ai/segment`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ prompt }),

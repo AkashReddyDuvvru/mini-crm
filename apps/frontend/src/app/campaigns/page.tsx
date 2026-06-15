@@ -19,7 +19,7 @@ export default function Campaigns() {
 
   const fetchCampaigns = async () => {
     try {
-      const res = await fetch("http://localhost:4000/api/campaigns");
+      const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL || "http://localhost:4000"}/api/campaigns`);
       const data = await res.json();
       setCampaigns(data);
     } catch (e) {
@@ -29,7 +29,7 @@ export default function Campaigns() {
 
   const fetchSegments = async () => {
     try {
-      const res = await fetch("http://localhost:4000/api/segments");
+      const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL || "http://localhost:4000"}/api/segments`);
       const data = await res.json();
       setSegments(data);
     } catch (e) {
@@ -41,7 +41,7 @@ export default function Campaigns() {
     e.preventDefault();
     setIsDrafting(true);
     try {
-      const res = await fetch("http://localhost:4000/api/ai/campaign-assistant", {
+      const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL || "http://localhost:4000"}/api/ai/campaign-assistant`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ prompt: assistantPrompt }),
@@ -65,7 +65,7 @@ export default function Campaigns() {
     const segmentId = segments[0]?.id;
 
     try {
-      await fetch("http://localhost:4000/api/campaigns", {
+      await fetch(`${process.env.NEXT_PUBLIC_API_URL || "http://localhost:4000"}/api/campaigns`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
